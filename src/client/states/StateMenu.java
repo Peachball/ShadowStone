@@ -9,8 +9,6 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import client.Game;
 import client.ui.GenericButton;
-import client.ui.Text;
-import client.ui.TextField;
 import client.ui.UI;
 import client.ui.UIEventListener;
 import client.ui.UIMouseListenerWrapper;
@@ -29,11 +27,11 @@ public class StateMenu extends BasicGameState {
 	}
 
 	@Override
-	public void enter(GameContainer arg0, StateBasedGame arg1) throws SlickException {
+	public void enter(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
 		this.ui = new UI();
 		this.listener = new UIMouseListenerWrapper(this.ui);
-		arg0.getInput().addMouseListener(listener);
-		arg0.getInput().addKeyListener(this.ui);
+		gameContainer.getInput().addMouseListener(listener);
+		gameContainer.getInput().addKeyListener(this.ui);
 
 		this.ui.addListener(new UIEventListener() {
 			@Override
@@ -42,12 +40,12 @@ public class StateMenu extends BasicGameState {
 				case DeckSelectPanel.DECK_CONFIRM:
 					if (playButton.deckspanel.selectedDeckUnit != null) {
 						StateGame.tempdeck = playButton.deckspanel.selectedDeckUnit.deck;
-						arg1.enterState(Game.STATE_GAME);
+						stateBasedGame.enterState(Game.STATE_GAME);
 					}
 
 					break;
 				case "deckbuild":
-					arg1.enterState(Game.STATE_DECKBUILD);
+					stateBasedGame.enterState(Game.STATE_DECKBUILD);
 					break;
 				default:
 					break;
@@ -67,25 +65,22 @@ public class StateMenu extends BasicGameState {
 	}
 
 	@Override
-	public void leave(GameContainer arg0, StateBasedGame arg1) throws SlickException {
-		arg0.getInput().removeMouseListener(listener);
+	public void leave(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
+		gameContainer.getInput().removeMouseListener(listener);
 	}
 
 	@Override
-	public void render(GameContainer arg0, StateBasedGame arg1, Graphics arg2) throws SlickException {
-		// TODO Auto-generated method stub
-		this.ui.draw(arg2);
+	public void render(GameContainer arg0, StateBasedGame arg1, Graphics graphics) throws SlickException {
+		this.ui.draw(graphics);
 	}
 
 	@Override
-	public void update(GameContainer arg0, StateBasedGame arg1, int arg2) throws SlickException {
-		// TODO Auto-generated method stub
-		this.ui.update(arg2 / 1000.);
+	public void update(GameContainer arg0, StateBasedGame arg1, int deltaMillis) throws SlickException {
+		this.ui.update(deltaMillis / 1000.);
 	}
 
 	@Override
 	public int getID() {
-		// TODO Auto-generated method stub
 		return Game.STATE_MENU;
 	}
 

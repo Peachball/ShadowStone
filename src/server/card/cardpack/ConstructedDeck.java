@@ -143,8 +143,8 @@ public class ConstructedDeck implements Serializable {
 	}
 
 	/**
-	 * Method to validate that a deck is playable, also updates the size of the
-	 * deck just in case there is a discrepancy
+	 * Method to validate that a deck is playable, also updates the size of the deck
+	 * just in case there is a discrepancy
 	 * 
 	 * @return whether or not the deck is playable
 	 */
@@ -162,8 +162,7 @@ public class ConstructedDeck implements Serializable {
 	}
 
 	/**
-	 * Converts a decklist to a list of actual Card objects ready to be used in
-	 * game
+	 * Converts a decklist to a list of actual Card objects ready to be used in game
 	 * 
 	 * @param b
 	 *            the board to add the cards to

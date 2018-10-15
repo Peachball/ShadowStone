@@ -15,7 +15,9 @@ import org.newdawn.slick.font.effects.ColorEffect;
 import org.newdawn.slick.font.effects.OutlineEffect;
 import org.newdawn.slick.state.StateBasedGame;
 
-import client.states.*;
+import client.states.StateDeckbuild;
+import client.states.StateGame;
+import client.states.StateMenu;
 import server.card.cardpack.ConstructedDeck;
 
 public class Game extends StateBasedGame {

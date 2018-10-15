@@ -324,9 +324,9 @@ public class UIElement implements DefaultInputListener, UIEventListener {
 	}
 
 	/**
-	 * Removes the parent of the UIElement, handles the removing of the
-	 * connection between parent and child by removing itself from the parent's
-	 * children and by removing its parent object
+	 * Removes the parent of the UIElement, handles the removing of the connection
+	 * between parent and child by removing itself from the parent's children and by
+	 * removing its parent object
 	 */
 	public void removeParent() {
 		if (this.parent != null) {
